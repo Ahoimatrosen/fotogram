@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Figtree";
+}
+
+body {
+    background-color: #06171e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+/* Styling for the header */
+
+.header-main {
+    background-color: #09212a;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 20px 140px;
+}
+
+.header-main-icon {
+    width: 40px;
+    height: auto;
+}
+.header-main-headline {
+    height: 32px;
+}
+
+/* Styling for the main-part */
+
+main {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.main-foto-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.main-foto-container img {
+    border: solid 2px #124658;
+    border-radius: 16px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Styling for the footer */
+
+.footer-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 128px;
+    background-image: url(./assets/icon/footer-background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: auto;
+}
+
+.footer-main-copyright-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 1440px) {
+    main {
+        padding: 0px max(120px, calc((50% - 720px)));
+    }
+    .header-main {
+        padding: 0px max(120px, calc((50% - 720px)));
+    }
+}
