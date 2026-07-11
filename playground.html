@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fotogram playground</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/fonts.css" />
+        <script defer src="./scripts/fotoalbum.js"></script>
+    </head>
+
+    <body onload="renderImages()">
+        <!-- main header -->
+        <header class="header-main">
+            <section>
+                <img class="header-main-icon" src="./assets/icon/icon.svg" alt="icon fotogram" />
+                <img class="header-main-headline" src="./assets/icon/fotogram-header-title.svg" alt="" />
+            </section>
+        </header>
+        <!-- main content -->
+        <main>
+            <article class="main-foto-container">
+                <h1>Your personal photo album</h1>
+
+                <section id="fotoContainer" class="main-foto-container-images"></section>
+            </article>
+
+            <dialog id="fotogramDialog">
+                <h2>Der Titel meines Bildes. Hier: A small Island on a quiet lake</h2>
+                <section id="fotogramDialogImg"></section>
+                <footer>links 1/12 rechts</footer>
+            </dialog>
+        </main>
+        <!-- main footer -->
+        <footer class="footer-main">
+            <section class="footer-main-copyright-container">
+                <section>
+                    <img src="./assets/icon/da-icon.svg" alt="Icon Developer Akademie" />
+                    <img src="./assets/icon/da-text.svg" alt="Developer Akademie" />
+                </section>
+                <img src="./assets/icon/da-copyright-text.svg" alt="Develper Akademie Copyright" />
+            </section>
+        </footer>
+    </body>
+</html>
