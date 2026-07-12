@@ -41,6 +41,7 @@ main {
 h1 {
     text-align: center;
     font-size: 56px;
+    font-weight: 800;
 }
 
 .main-foto-container {
@@ -53,18 +54,85 @@ h1 {
 .main-foto-container-images {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 16px;
     flex-wrap: wrap;
 }
 
 .main-foto-container-images img {
+    opacity: 0.8;
     border: solid 2px #124658;
     border-radius: 16px;
     width: 150px;
     height: 150px;
     object-fit: cover;
 }
+.main-foto-container-images img:hover {
+    opacity: 1;
+    border: solid 2px #6bc1e1;
+    transition: all ease-out 100ms;
+    transform: scale(1.005);
+}
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styling fot the dialog */
+
+.dialog-inner-img {
+    width: 520px;
+    height: 340px;
+    object-fit: cover;
+}
+
+#fotogramDialog {
+    margin: auto;
+}
+
+#fotogramDialog:modal {
+    background-color: #09212a;
+    color: white;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 48px;
+    padding: 56px 64px;
+    font-size: 24px;
+    font-family: "Figtree";
+    font-weight: 700;
+    border-radius: 40px;
+}
+
+#fotogramDialog:modal header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fotogramDialog:modal header a:hover {
+    background-image: url(../assets/icon/close-icon-hover.png);
+    background-repeat: no-repeat;
+}
+
+#fotogramDialog:modal header a:active {
+    background-image: url(../assets/icon/close-icon-while-pressing.png);
+    background-repeat: no-repeat;
+}
+
+#fotogramDialog:modal footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mirrored {
+    transform: scaleX(-1);
+}
 /* Styling for the footer */
 
 .footer-main {

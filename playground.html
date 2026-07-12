@@ -24,12 +24,6 @@
 
                 <section id="fotoContainer" class="main-foto-container-images"></section>
             </article>
-
-            <dialog id="fotogramDialog">
-                <h2>Der Titel meines Bildes. Hier: A small Island on a quiet lake</h2>
-                <section id="fotogramDialogImg"></section>
-                <footer>links 1/12 rechts</footer>
-            </dialog>
         </main>
         <!-- main footer -->
         <footer class="footer-main">
@@ -41,5 +35,23 @@
                 <img src="./assets/icon/da-copyright-text.svg" alt="Develper Akademie Copyright" />
             </section>
         </footer>
+        <dialog id="fotogramDialog">
+            <header>
+                <h2 id="fotogramTitle"></h2>
+                <a onclick="closeFotogram()" class="close-button" href="#">
+                    <img src="./assets/icon/close-icon.png" alt="" />
+                </a>
+            </header>
+            <section id="fotogramDialogImg"></section>
+            <footer>
+                <a href="">
+                    <img class="mirrored" src="./assets/icon/next-icon.png" alt="" />
+                </a>
+                <p id="fotogramDialogFooterP"></p>
+                <a href="">
+                    <img src="./assets/icon/next-icon.png" alt="" />
+                </a>
+            </footer>
+        </dialog>
     </body>
 </html>
