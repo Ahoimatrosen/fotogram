@@ -63,6 +63,7 @@ function openFotogram(index) {
     FOTOGRAM_DIALOG_REF.showModal();
     showFotogramImage(index);
     showFotogramTitle(index);
+    currentImageCounter(index);
 }
 
 // closes dialog
@@ -91,4 +92,10 @@ function renderImages() {
         getImgs += `<img  onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
     }
     fotoContainer.innerHTML = getImgs;
+}
+
+function currentImageCounter(index) {
+    let counter = "";
+    counter = `${index + 1} / 12`;
+    FOTOGRAM_DIALOG_FOOTER.innerHTML = counter;
 }
