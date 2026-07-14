@@ -38,7 +38,14 @@
             <div class="dialog-fotogram-content" id="fotogramDialogContent" onclick="bubblingProtection(event)">
                 <header>
                     <h2 class="dialog-title-mobile dialog-fotogram-title" id="fotogramTitle"></h2>
-                    <img tabindex="0" onclick="closeFotogram()" class="close-button" src="./assets/icon/close-icon.png" alt="close-button-icon" />
+                    <img
+                        tabindex="0"
+                        onkeydown="closeFotogramOnKeyDown()"
+                        onclick="closeFotogram()"
+                        class="close-button"
+                        src="./assets/icon/close-icon.png"
+                        alt="close-button-icon"
+                    />
                 </header>
                 <section id="fotogramDialogImg"></section>
                 <footer class="dialog-fotogram-footer" id="fotogramDialogFooter"></footer>

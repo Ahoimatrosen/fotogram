@@ -77,6 +77,12 @@ function openFotogram(index) {
     currentImageCounter(index);
 }
 
+function openFotogramOnKeyDown(index) {
+    if (event.key === "Enter") {
+        openFotogram(index);
+    }
+}
+
 // renders img and alt attribute for dialog
 function showFotogramImage(index) {
     let getImgs = "";
@@ -103,6 +109,12 @@ function closeFotogram() {
     FOTOGRAM_DIALOG_REF.close();
 }
 
+function closeFotogramOnKeyDown() {
+    if (event.key === "Enter") {
+        closeFotogram();
+    }
+}
+
 // stops event bubbling
 function bubblingProtection(event) {
     event.stopPropagation();
@@ -117,6 +129,14 @@ function nextImage(index) {
     openFotogram(index);
 }
 
+function nextImageOnKeyDown(index) {
+    if (event.key === "Enter") {
+        nextImage(index);
+        let FOTOGRAM_DIALOG_FOOTER_NEXT_IMAGE_BUTTON = document.getElementById("nextImageButton");
+        FOTOGRAM_DIALOG_FOOTER_NEXT_IMAGE_BUTTON.focus();
+    }
+}
+
 // jumps back to previous image in dialog
 function previousImage(index) {
     index--;
@@ -126,9 +146,17 @@ function previousImage(index) {
     openFotogram(index);
 }
 
+function previousImageOnKeyDown(index) {
+    if (event.key === "Enter") {
+        previousImage(index);
+        let FOTOGRAM_DIALOG_FOOTER_PREVIOUS_IMAGE_BUTTON = document.getElementById("previousImageButton");
+        FOTOGRAM_DIALOG_FOOTER_PREVIOUS_IMAGE_BUTTON.focus();
+    }
+}
+
 //template for function renderImages()
 function renderImagesTemplate(index) {
-    return `<img tabindex="0" onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+    return `<img tabindex="0" onkeydown="openFotogramOnKeyDown(${index})" onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
 }
 
 //template for function showFotogramImageT()
@@ -138,7 +166,7 @@ function showFotogramImageTemplate(index) {
 
 // templaze for function currentImageCounter()
 function currentImageCounterTemplate(index) {
-    return `<img tabindex="0" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
+    return `<img id="previousImageButton" tabindex="0" onkeydown="previousImageOnKeyDown(${index})" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
                 <p>${index + 1} / 12</p>
-                <img tabindex="0" class="dialog-footer-button" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
+                <img id="nextImageButton" tabindex="0" class="dialog-footer-button" onkeydown="nextImageOnKeyDown(${index})" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
 }

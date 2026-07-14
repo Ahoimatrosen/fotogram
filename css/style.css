@@ -17,8 +17,6 @@
 body {
     background-color: var(--primary-color);
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
 }
 
 /* Styling for the header */
@@ -44,17 +42,18 @@ h1 {
     text-align: center;
     font-size: 56px;
     font-weight: 800;
-    padding-top: 56px;
+    margin-top: 56px;
 }
 
 .main-foto-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 160px;
+    gap: 80px;
     flex-wrap: wrap;
-    min-height: 100dvh;
+    min-height: calc(100vh - 208px);
 }
+
 .main-foto-container-images {
     display: flex;
     justify-content: center;
@@ -62,14 +61,15 @@ h1 {
     gap: 16px;
     flex-wrap: wrap;
     padding-bottom: 56px;
+    margin: 0px 40px;
 }
 
 .main-foto-container-images img {
     border: solid 2px var(--border-color);
     border-radius: 16px;
     opacity: 0.8;
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
     object-fit: cover;
 }
 .main-foto-container-images img:hover {

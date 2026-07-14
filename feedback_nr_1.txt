@@ -1,0 +1,8 @@
+github ist auf public jetzt
+bilder sind jetzt nicht mehr quadratisch aber der scrollbalken vom main ist verschwunden.
+function openFotogramOnKeyDown(index) hinuzugefügt
+function closeFotogramOnKeyDown() hinzugefügt
+function previousImageOnKeyDown(index) hinzugefügt
+sie lässt den focus nach verwendung auf dem button
+function nextImageOnKeyDown(index)
+sie lässt den focus nach verwendung auf dem button
