@@ -13,17 +13,14 @@
         <!-- main header -->
         <header class="header-main">
             <section>
-                <img class="header-main-icon" src="./assets/icon/icon.svg" alt="icon fotogram" />
-                <img class="header-main-headline" src="./assets/icon/fotogram-header-title.svg" alt="" />
+                <img class="header-main-icon" src="./assets/icon/fotogram-icon.png" alt="icon and title fotogram" />
             </section>
         </header>
         <!-- main content -->
-        <main>
-            <article class="main-foto-container">
-                <h1>Your personal photo album</h1>
+        <main class="main-foto-container">
+            <h1>Your personal photo album</h1>
 
-                <section id="fotoContainer" class="main-foto-container-images"></section>
-            </article>
+            <div id="fotoContainer" class="main-foto-container-images"></div>
         </main>
         <!-- main footer -->
         <footer class="footer-main">
@@ -35,23 +32,15 @@
                 <img src="./assets/icon/da-copyright-text.svg" alt="Develper Akademie Copyright" />
             </section>
         </footer>
-        <dialog id="fotogramDialog">
-            <header>
-                <h2 id="fotogramTitle"></h2>
-                <a onclick="closeFotogram()" class="close-button" href="#">
-                    <img src="./assets/icon/close-icon.png" alt="" />
-                </a>
-            </header>
-            <section id="fotogramDialogImg"></section>
-            <footer>
-                <a href="">
-                    <img class="mirrored" src="./assets/icon/next-icon.png" alt="" />
-                </a>
-                <p id="fotogramDialogFooterP"></p>
-                <a href="">
-                    <img src="./assets/icon/next-icon.png" alt="" />
-                </a>
-            </footer>
+        <dialog onclick="closeFotogram()" id="fotogramDialog">
+            <div id="fotogramDialogContent" onclick="bubblingProtection(event)">
+                <header>
+                    <h2 class="dialog-title-mobile" id="fotogramTitle"></h2>
+                    <img onclick="closeFotogram()" class="close-button" src="./assets/icon/close-icon.png" alt="" />
+                </header>
+                <section id="fotogramDialogImg"></section>
+                <footer id="fotogramDialogFooter"></footer>
+            </div>
         </dialog>
     </body>
 </html>

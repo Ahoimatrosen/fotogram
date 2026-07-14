@@ -46,6 +46,8 @@ const FOTOGRAM_TITLE_ARRAY = [
     "Bird",
 ];
 
+let FOTOGRAM_MAIN_REF = document.getElementById("fotoContainer");
+
 // variable for fotogram dialog
 let FOTOGRAM_DIALOG_REF = document.getElementById("fotogramDialog");
 
@@ -56,7 +58,16 @@ let FOTOGRAM_DIALOG_IMG_REF = document.getElementById("fotogramDialogImg");
 let FOTOGRAM_DIALOG_TITLE = document.getElementById("fotogramTitle");
 
 // variable for the counter container
-let FOTOGRAM_DIALOG_FOOTER = document.getElementById("fotogramDialogFooterP");
+let FOTOGRAM_DIALOG_FOOTER = document.getElementById("fotogramDialogFooter");
+
+// renders imgs for main-content
+function renderImages() {
+    let getImgs = "";
+    for (let index = 0; index < FOTOGRAM_IMAGES_ARRAY.length; index++) {
+        getImgs += renderImagesTemplate(index);
+    }
+    FOTOGRAM_MAIN_REF.innerHTML = getImgs;
+}
 
 // opens dialog; renders img and title
 function openFotogram(index) {
@@ -66,15 +77,10 @@ function openFotogram(index) {
     currentImageCounter(index);
 }
 
-// closes dialog
-function closeFotogram() {
-    FOTOGRAM_DIALOG_REF.close();
-}
-
 // renders img and alt attribute for dialog
 function showFotogramImage(index) {
     let getImgs = "";
-    getImgs = `<img class="dialog-inner-img" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+    getImgs = showFotogramImageTemplate(index);
     FOTOGRAM_DIALOG_IMG_REF.innerHTML = getImgs;
 }
 
@@ -85,17 +91,50 @@ function showFotogramTitle(index) {
     FOTOGRAM_DIALOG_TITLE.innerHTML = getTitle;
 }
 
-// renders imgs for main-content
-function renderImages() {
-    let getImgs = "";
-    for (let index = 0; index < FOTOGRAM_IMAGES_ARRAY.length; index++) {
-        getImgs += `<img  onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
-    }
-    fotoContainer.innerHTML = getImgs;
-}
-
 function currentImageCounter(index) {
     let counter = "";
-    counter = `${index + 1} / 12`;
+    counter = currentImageCounterTemplate(index);
     FOTOGRAM_DIALOG_FOOTER.innerHTML = counter;
+}
+
+// closes dialog
+function closeFotogram() {
+    FOTOGRAM_DIALOG_REF.close();
+}
+
+function bubblingProtection(event) {
+    event.stopPropagation();
+}
+function closeFotogramWBubblingPrvention(event) {
+    FOTOGRAM_DIALOG_REF.close();
+    event.stopPropagation;
+}
+function nextImage(index) {
+    index++;
+    if (index === FOTOGRAM_IMAGES_ARRAY.length) {
+        index = 0;
+    }
+    openFotogram(index);
+}
+
+function previousImage(index) {
+    index--;
+    if (index === -1) {
+        index = FOTOGRAM_IMAGES_ARRAY.length - 1;
+    }
+    openFotogram(index);
+}
+
+function renderImagesTemplate(index) {
+    return `<img  onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+}
+
+function showFotogramImageTemplate(index) {
+    return `<img class="dialog-inner-img" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+}
+
+function currentImageCounterTemplate(index) {
+    return `<img onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
+                <p>${index + 1} / 12</p>
+                <img class="dialog-footer-button" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
 }
