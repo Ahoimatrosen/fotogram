@@ -105,10 +105,7 @@ function closeFotogram() {
 function bubblingProtection(event) {
     event.stopPropagation();
 }
-function closeFotogramWBubblingPrvention(event) {
-    FOTOGRAM_DIALOG_REF.close();
-    event.stopPropagation;
-}
+
 function nextImage(index) {
     index++;
     if (index === FOTOGRAM_IMAGES_ARRAY.length) {
@@ -126,7 +123,7 @@ function previousImage(index) {
 }
 
 function renderImagesTemplate(index) {
-    return `<img  onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+    return `<img tabindex="0" onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
 }
 
 function showFotogramImageTemplate(index) {
@@ -134,7 +131,7 @@ function showFotogramImageTemplate(index) {
 }
 
 function currentImageCounterTemplate(index) {
-    return `<img onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
+    return `<img tabindex="0" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
                 <p>${index + 1} / 12</p>
-                <img class="dialog-footer-button" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
+                <img tabindex="0" class="dialog-footer-button" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
 }
