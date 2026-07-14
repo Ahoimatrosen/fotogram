@@ -1,20 +1,30 @@
+/* global styling */
+:root {
+    --primary-color: #06171e;
+    --secondary-color: #09212a;
+    --border-color: #124658;
+    --border-color-hover: #6bc1e1;
+    --text-color: white;
+    --text-font: "Figtree";
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: "Figtree";
+    font-family: var(--text-font);
 }
 
 body {
-    background-color: #06171e;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
-    color: white;
 }
 
 /* Styling for the header */
 
 .header-main {
-    background-color: #09212a;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: start;
     align-items: center;
@@ -55,16 +65,16 @@ h1 {
 }
 
 .main-foto-container-images img {
-    opacity: 0.8;
-    border: solid 2px #124658;
+    border: solid 2px var(--border-color);
     border-radius: 16px;
+    opacity: 0.8;
     width: 150px;
     height: 150px;
     object-fit: cover;
 }
 .main-foto-container-images img:hover {
+    border: solid 2px var(--border-color-hover);
     opacity: 1;
-    border: solid 2px #6bc1e1;
     transition: all ease-out 100ms;
     transform: scale(1.005);
     cursor: pointer;
@@ -84,71 +94,64 @@ h1 {
     height: 370px;
     object-fit: cover;
 }
-
-#fotogramDialog {
-    margin: auto;
-    z-index: 2;
-}
-#fotogramDialog::backdrop {
-    z-index: 1;
-}
-
-#fotogramDialog:modal {
-    background-color: #09212a;
-    color: white;
+.dialog-fotogram:modal {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border: none;
+    border-radius: 40px;
     font-size: 24px;
-    font-family: "Figtree";
+    font-family: var(--text-font);
     font-weight: 700;
-    border-radius: 40px;
     padding: 0;
-}
-#fotogramDialogContent {
-    width: 100%;
-    height: 100%;
-    border-radius: 40px;
-    padding: 56px 64px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    gap: 48px;
+    margin: auto;
 }
 
-#fotogramDialog:modal header {
+.dialog-fotogram:modal header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-#fotogramDialog:modal header img {
+.dialog-fotogram:modal header img {
     width: 24px;
     height: 24px;
 }
 
-#fotogramDialog:modal header img:hover {
+.dialog-fotogram:modal header img:hover {
     background-image: url(../assets/icon/close-icon-hover.png);
     background-repeat: no-repeat;
     background-size: 24px;
     cursor: pointer;
 }
 
-#fotogramDialog:modal header img:active {
+.dialog-fotogram:modal header img:active {
     background-image: url(../assets/icon/close-icon-while-pressing.png);
     background-repeat: no-repeat;
 }
 
-#fotogramDialog:modal footer {
+.dialog-fotogram:modal footer {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 40px;
 }
 
-#fotogramTitle {
+.dialog-fotogram-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 48px;
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+    padding: 56px 64px;
+}
+
+.dialog-fotogram-title {
     font-size: 24px;
 }
 
-#fotogramDialogFooter {
+.dialog-fotogram-footer {
     font-size: 16px;
 }
 
@@ -207,13 +210,13 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-    #fotogramDialogContent {
+    .dialog-fotogram-content {
         max-width: 400px;
         padding: 32px 16px;
         gap: 24px;
     }
 
-    #fotogramDialog:modal header {
+    .dialog-fotogram:modal header {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -235,10 +238,10 @@ h1 {
         justify-content: center;
     }
 
-    #fotogramDialogFooter {
+    .dialog-fotogram-footer {
         white-space: nowrap;
     }
-    #fotogramDialogContent {
+    .dialog-fotogram-content {
         padding: 32px 16px;
         gap: 24px;
     }

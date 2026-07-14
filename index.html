@@ -1,44 +1,48 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Fotogram</title>
         <link rel="stylesheet" href="./css/style.css" />
         <link rel="stylesheet" href="./css/fonts.css" />
+        <link rel="icon" type="image/x-icon" href="./assets/icon/icon.svg" />
+        <script defer src="./scripts/fotoalbum.js"></script>
     </head>
-    <body>
+
+    <body onload="renderImages()">
+        <!-- main header -->
         <header class="header-main">
-            <section class="">
-                <img class="header-main-icon" src="./assets/icon/icon.svg" alt="icon fotogram" />
-                <img class="header-main-headline" src="./assets/icon/fotogram-header-title.svg" alt="" />
+            <section>
+                <img class="header-main-icon" src="./assets/icon/fotogram-icon.png" alt="icon and title fotogram" />
             </section>
         </header>
-        <main>
-            <section class="main-foto-container">
-                <h1>Your personal photo album</h1>
-                <section class="main-foto-container-images">
-                    <img src="./assets/img/cat.jpg" alt="A cat looking into the camera" />
-                    <img src="./assets/img/corgi.jpg" alt="A corgi looking into the camera" />
-                    <img src="./assets/img/cow.jpg" alt="A cow looking into the camera" />
-                    <img src="./assets/img/dog.jpg" alt="A dog on white background" />
-                    <img src="./assets/img/dog_and_lake.jpg" alt="A dog looking into a lake" />
-                    <img src="./assets/img/flower.jpg" alt="A purple flower" />
-                    <img src="./assets/img/island_on_river.jpg" alt="A small Island on a quiet lake" />
-                    <img src="./assets/img/mountains_and_river.jpg" alt="A river floating through mountain landscape" />
-                    <img src="./assets/img/rocks_and_desert.jpg" alt="Rocks in a desert" />
-                    <img src="./assets/img/sunny_forest.jpg" alt="Sun shining over a forest" />
-                </section>
-            </section>
+        <!-- main content -->
+        <main class="main-foto-container">
+            <h1>Your personal photo album</h1>
+
+            <div id="fotoContainer" class="main-foto-container-images"></div>
         </main>
+        <!-- main footer -->
         <footer class="footer-main">
-            <div class="footer-main-copyright-container">
-                <div>
+            <section class="footer-main-copyright-container">
+                <section>
                     <img src="./assets/icon/da-icon.svg" alt="Icon Developer Akademie" />
                     <img src="./assets/icon/da-text.svg" alt="Developer Akademie" />
-                </div>
+                </section>
                 <img src="./assets/icon/da-copyright-text.svg" alt="Develper Akademie Copyright" />
-            </div>
+            </section>
         </footer>
+        <!-- dialog fotogram -->
+        <dialog class="dialog-fotogram" onclick="closeFotogram()" id="fotogramDialog">
+            <div class="dialog-fotogram-content" id="fotogramDialogContent" onclick="bubblingProtection(event)">
+                <header>
+                    <h2 class="dialog-title-mobile dialog-fotogram-title" id="fotogramTitle"></h2>
+                    <img tabindex="0" onclick="closeFotogram()" class="close-button" src="./assets/icon/close-icon.png" alt="close-button-icon" />
+                </header>
+                <section id="fotogramDialogImg"></section>
+                <footer class="dialog-fotogram-footer" id="fotogramDialogFooter"></footer>
+            </div>
+        </dialog>
     </body>
 </html>

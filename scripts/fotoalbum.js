@@ -2,14 +2,14 @@
 const FOTOGRAM_IMAGES_ARRAY = [
     "cat.jpg",
     "corgi.jpg",
-    "cow.jpg",
+    "beach.jpg",
     "dog.jpg",
-    "dog_and_lake.jpg",
+    "forest.jpg",
     "flower.jpg",
-    "island_on_river.jpg",
-    "mountains_and_river.jpg",
+    "mushroom.jpg",
+    "owl.jpg",
     "rocks_and_desert.jpg",
-    "sunny_forest.jpg",
+    "elephant.jpg",
     "leopards.jpg",
     "bird.jpg",
 ];
@@ -18,14 +18,14 @@ const FOTOGRAM_IMAGES_ARRAY = [
 const FOTOGRAM_ALT_ARRAY = [
     "A cat looking into the camera",
     "A corgi looking into the camera",
-    "A cow looking into the camera",
+    "A beach with Hat and flip-flops",
     "A dog on white background",
-    "A dog looking into a lake",
+    "A road in a forest",
     "A purple flower",
-    "A small Island on a quiet lake",
-    "A river floating through mountain landscape",
+    "A fly agaric",
+    "An owl on a tree",
     "Rocks in a desert",
-    "Sun shining over a forest",
+    "An elephant in a forest",
     "Two baby leopards",
     "A bird on a branch",
 ];
@@ -34,14 +34,14 @@ const FOTOGRAM_ALT_ARRAY = [
 const FOTOGRAM_TITLE_ARRAY = [
     "Cat",
     "Corgi",
-    "Cow",
+    "Beach",
     "Dog",
-    "Dog_and_lake",
+    "Forest",
     "Flower",
-    "Island_on_river",
-    "Mountains_and_river",
+    "Mushroom",
+    "Owl",
     "Rocks_and_desert",
-    "Sunny_forest",
+    "Elephant",
     "Leopards",
     "Bird",
 ];
@@ -91,6 +91,7 @@ function showFotogramTitle(index) {
     FOTOGRAM_DIALOG_TITLE.innerHTML = getTitle;
 }
 
+// counts and display the current number of the image
 function currentImageCounter(index) {
     let counter = "";
     counter = currentImageCounterTemplate(index);
@@ -102,10 +103,12 @@ function closeFotogram() {
     FOTOGRAM_DIALOG_REF.close();
 }
 
+// stops event bubbling
 function bubblingProtection(event) {
     event.stopPropagation();
 }
 
+// skips to next image in dialog
 function nextImage(index) {
     index++;
     if (index === FOTOGRAM_IMAGES_ARRAY.length) {
@@ -114,6 +117,7 @@ function nextImage(index) {
     openFotogram(index);
 }
 
+// jumps back to previous image in dialog
 function previousImage(index) {
     index--;
     if (index === -1) {
@@ -122,14 +126,17 @@ function previousImage(index) {
     openFotogram(index);
 }
 
+//template for function renderImages()
 function renderImagesTemplate(index) {
     return `<img tabindex="0" onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
 }
 
+//template for function showFotogramImageT()
 function showFotogramImageTemplate(index) {
     return `<img class="dialog-inner-img" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
 }
 
+// templaze for function currentImageCounter()
 function currentImageCounterTemplate(index) {
     return `<img tabindex="0" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
                 <p>${index + 1} / 12</p>
