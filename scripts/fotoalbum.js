@@ -1,5 +1,4 @@
-// Array for the images
-const FOTOGRAM_IMAGES_ARRAY = [
+const fotogramImagesArray = [
     "cat.jpg",
     "corgi.jpg",
     "beach.jpg",
@@ -13,9 +12,7 @@ const FOTOGRAM_IMAGES_ARRAY = [
     "leopards.jpg",
     "bird.jpg",
 ];
-
-// Array for the alt attribute
-const FOTOGRAM_ALT_ARRAY = [
+const fotogramAltArray = [
     "A cat looking into the camera",
     "A corgi looking into the camera",
     "A beach with Hat and flip-flops",
@@ -29,9 +26,7 @@ const FOTOGRAM_ALT_ARRAY = [
     "Two baby leopards",
     "A bird on a branch",
 ];
-
-// Array for the dialog/image titles
-const FOTOGRAM_TITLE_ARRAY = [
+const fotogramTitleArray = [
     "Cat",
     "Corgi",
     "Beach",
@@ -45,33 +40,22 @@ const FOTOGRAM_TITLE_ARRAY = [
     "Leopards",
     "Bird",
 ];
+const fotogramMainRef = document.getElementById("fotoContainer");
+const fotogramDialogRef = document.getElementById("fotogramDialog");
+const fotogramDialogImgRef = document.getElementById("fotogramDialogImg");
+const fotogramDialogTitle = document.getElementById("fotogramTitle");
+const fotogramDialogFooter = document.getElementById("fotogramDialogFooter");
 
-let FOTOGRAM_MAIN_REF = document.getElementById("fotoContainer");
-
-// variable for fotogram dialog
-let FOTOGRAM_DIALOG_REF = document.getElementById("fotogramDialog");
-
-// variable for the dialog img container
-let FOTOGRAM_DIALOG_IMG_REF = document.getElementById("fotogramDialogImg");
-
-// variable for the dialog title container
-let FOTOGRAM_DIALOG_TITLE = document.getElementById("fotogramTitle");
-
-// variable for the counter container
-let FOTOGRAM_DIALOG_FOOTER = document.getElementById("fotogramDialogFooter");
-
-// renders imgs for main-content
 function renderImages() {
     let getImgs = "";
-    for (let index = 0; index < FOTOGRAM_IMAGES_ARRAY.length; index++) {
+    for (let index = 0; index < fotogramImagesArray.length; index++) {
         getImgs += renderImagesTemplate(index);
     }
-    FOTOGRAM_MAIN_REF.innerHTML = getImgs;
+    fotogramMainRef.innerHTML = getImgs;
 }
 
-// opens dialog; renders img and title
 function openFotogram(index) {
-    FOTOGRAM_DIALOG_REF.showModal();
+    fotogramDialogRef.showModal();
     showFotogramImage(index);
     showFotogramTitle(index);
     currentImageCounter(index);
@@ -83,30 +67,26 @@ function openFotogramOnKeyDown(index) {
     }
 }
 
-// renders img and alt attribute for dialog
 function showFotogramImage(index) {
     let getImgs = "";
     getImgs = showFotogramImageTemplate(index);
-    FOTOGRAM_DIALOG_IMG_REF.innerHTML = getImgs;
+    fotogramDialogImgRef.innerHTML = getImgs;
 }
 
-//renders title for dialog
 function showFotogramTitle(index) {
     let getTitle = "";
-    getTitle = `${FOTOGRAM_TITLE_ARRAY[index]}`;
-    FOTOGRAM_DIALOG_TITLE.innerHTML = getTitle;
+    getTitle = `${fotogramTitleArray[index]}`;
+    fotogramDialogTitle.innerHTML = getTitle;
 }
 
-// counts and display the current number of the image
 function currentImageCounter(index) {
     let counter = "";
     counter = currentImageCounterTemplate(index);
-    FOTOGRAM_DIALOG_FOOTER.innerHTML = counter;
+    fotogramDialogFooter.innerHTML = counter;
 }
 
-// closes dialog
 function closeFotogram() {
-    FOTOGRAM_DIALOG_REF.close();
+    fotogramDialogRef.close();
 }
 
 function closeFotogramOnKeyDown() {
@@ -115,15 +95,13 @@ function closeFotogramOnKeyDown() {
     }
 }
 
-// stops event bubbling
 function bubblingProtection(event) {
     event.stopPropagation();
 }
 
-// skips to next image in dialog
 function nextImage(index) {
     index++;
-    if (index === FOTOGRAM_IMAGES_ARRAY.length) {
+    if (index === fotogramImagesArray.length) {
         index = 0;
     }
     openFotogram(index);
@@ -132,16 +110,15 @@ function nextImage(index) {
 function nextImageOnKeyDown(index) {
     if (event.key === "Enter") {
         nextImage(index);
-        let FOTOGRAM_DIALOG_FOOTER_NEXT_IMAGE_BUTTON = document.getElementById("nextImageButton");
-        FOTOGRAM_DIALOG_FOOTER_NEXT_IMAGE_BUTTON.focus();
+        const fotogramDialogFooterNextImageButton = document.getElementById("nextImageButton");
+        fotogramDialogFooterNextImageButton.focus();
     }
 }
 
-// jumps back to previous image in dialog
 function previousImage(index) {
     index--;
     if (index === -1) {
-        index = FOTOGRAM_IMAGES_ARRAY.length - 1;
+        index = fotogramImagesArray.length - 1;
     }
     openFotogram(index);
 }
@@ -149,24 +126,21 @@ function previousImage(index) {
 function previousImageOnKeyDown(index) {
     if (event.key === "Enter") {
         previousImage(index);
-        let FOTOGRAM_DIALOG_FOOTER_PREVIOUS_IMAGE_BUTTON = document.getElementById("previousImageButton");
-        FOTOGRAM_DIALOG_FOOTER_PREVIOUS_IMAGE_BUTTON.focus();
+        const fotogramDialogFooterPreviousImageButton = document.getElementById("previousImageButton");
+        fotogramDialogFooterPreviousImageButton.focus();
     }
 }
 
-//template for function renderImages()
 function renderImagesTemplate(index) {
-    return `<img tabindex="0" onkeydown="openFotogramOnKeyDown(${index})" onclick="openFotogram(${index})" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+    return `<img tabindex="0" onkeydown="openFotogramOnKeyDown(${index})" onclick="openFotogram(${index})" src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}">`;
 }
 
-//template for function showFotogramImageT()
 function showFotogramImageTemplate(index) {
-    return `<img class="dialog-inner-img" src="./assets/img/${FOTOGRAM_IMAGES_ARRAY[index]}" alt="${FOTOGRAM_ALT_ARRAY[index]}">`;
+    return `<img class="dialog-inner-img" src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}">`;
 }
 
-// templaze for function currentImageCounter()
 function currentImageCounterTemplate(index) {
     return `<img id="previousImageButton" tabindex="0" onkeydown="previousImageOnKeyDown(${index})" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
-                <p>${index + 1} / 12</p>
-                <img id="nextImageButton" tabindex="0" class="dialog-footer-button" onkeydown="nextImageOnKeyDown(${index})" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
+    <p>${index + 1} / 12</p>
+    <img id="nextImageButton" tabindex="0" class="dialog-footer-button" onkeydown="nextImageOnKeyDown(${index})" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
 }
