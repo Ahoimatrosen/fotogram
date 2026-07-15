@@ -60,8 +60,7 @@ h1 {
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-    padding-bottom: 56px;
-    margin: 0px 40px;
+    padding: 0px 32px 56px 40px;
 }
 
 .main-foto-container-images img {
@@ -210,6 +209,15 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+    h1 {
+        font-size: 48px;
+        padding: 0px 8px;
+    }
+
+    .main-foto-container {
+        gap: 40px;
+    }
+
     .dialog-fotogram-content {
         max-width: 400px;
         padding: 32px 16px;
@@ -233,6 +241,17 @@ h1 {
     }
 }
 
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 530px) {
+    h1 {
+        font-size: 32px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .header-main {
         justify-content: center;
@@ -244,5 +263,16 @@ h1 {
     .dialog-fotogram-content {
         padding: 32px 16px;
         gap: 24px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .main-foto-container-images img {
+        max-width: 250px;
+        max-height: 250px;
     }
 }

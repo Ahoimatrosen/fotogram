@@ -6,3 +6,6 @@ function previousImageOnKeyDown(index) hinzugefügt
 sie lässt den focus nach verwendung auf dem button
 function nextImageOnKeyDown(index)
 sie lässt den focus nach verwendung auf dem button
+//committed
+
+responsive layout optimiert: in erste linie padding für main content und padding für h1
