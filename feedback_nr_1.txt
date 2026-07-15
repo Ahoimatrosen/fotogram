@@ -9,3 +9,7 @@ sie lässt den focus nach verwendung auf dem button
 //committed
 
 responsive layout optimiert: in erste linie padding für main content und padding für h1
+
+//committed
+
+hintergrund scrollt nicht mehr wenn dialog offen
