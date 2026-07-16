@@ -112,6 +112,16 @@ h1 {
     height: 370px;
     object-fit: cover;
 }
+
+.dialog-close-button {
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    border: none;
+    padding: 0px;
+}
+.dialog-close-button img {
+    display: block;
+}
 .dialog-fotogram:modal {
     background-color: var(--secondary-color);
     color: var(--text-color);
@@ -174,6 +184,11 @@ h1 {
 }
 
 .dialog-footer-button {
+    border-radius: 50%;
+    border: none;
+    padding: 0px;
+    background-image: url(../assets/icon/next-icon.png);
+    background-color: var(--primary-color);
     width: 60px;
     height: 60px;
 }
@@ -181,6 +196,9 @@ h1 {
 .dialog-footer-button:hover {
     background-image: url(../assets/icon/next-icon-hover.png);
     cursor: pointer;
+}
+.dialog-footer-button img {
+    display: block;
 }
 
 .mirrored {

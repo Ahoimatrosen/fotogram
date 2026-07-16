@@ -120,6 +120,7 @@ function previousImage(index) {
     if (index === -1) {
         index = fotogramImagesArray.length - 1;
     }
+
     openFotogram(index);
 }
 
@@ -148,24 +149,12 @@ function showFotogramImageTemplate(index) {
 
 function currentImageCounterTemplate(index) {
     return `
-<img
-    id="previousImageButton"
-    tabindex="0"
-    onkeydown="previousImageOnKeyDown(${index})"
-    onclick="previousImage(${index})"
-    class="mirrored dialog-footer-button"
-    src="./assets/icon/next-icon.png"
-    alt="previous-button"
-/>
+    <button id="previousImageButton" class="mirrored dialog-footer-button" onclick="previousImage(${index})" onkeydown="previousImageOnKeyDown(${index})">
+    <img src="./assets/icon/next-icon.png" alt="previous-button" />
+</button>
 <p>${index + 1} / 12</p>
-<img
-    id="nextImageButton"
-    tabindex="0"
-    class="dialog-footer-button"
-    onkeydown="nextImageOnKeyDown(${index})"
-    onclick="nextImage(${index})"
-    src="./assets/icon/next-icon.png"
-    alt="next-button"
-/>
+<button id="nextImageButton" class="dialog-footer-button" onclick="nextImage(${index})" onkeydown="nextImageOnKeyDown(${index})">
+    <img src="./assets/icon/next-icon.png" alt="next-button" />
+</button>
 `;
 }
