@@ -62,7 +62,7 @@ function openFotogram(index) {
 }
 
 function openFotogramOnKeyDown(index) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key === " ") {
         openFotogram(index);
     }
 }
@@ -90,7 +90,7 @@ function closeFotogram() {
 }
 
 function closeFotogramOnKeyDown() {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key === " ") {
         closeFotogram();
     }
 }
@@ -108,7 +108,7 @@ function nextImage(index) {
 }
 
 function nextImageOnKeyDown(index) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key === " ") {
         nextImage(index);
         const fotogramDialogFooterNextImageButton = document.getElementById("nextImageButton");
         fotogramDialogFooterNextImageButton.focus();
@@ -124,7 +124,7 @@ function previousImage(index) {
 }
 
 function previousImageOnKeyDown(index) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.key === " ") {
         previousImage(index);
         const fotogramDialogFooterPreviousImageButton = document.getElementById("previousImageButton");
         fotogramDialogFooterPreviousImageButton.focus();
@@ -132,15 +132,40 @@ function previousImageOnKeyDown(index) {
 }
 
 function renderImagesTemplate(index) {
-    return `<img tabindex="0" onkeydown="openFotogramOnKeyDown(${index})" onclick="openFotogram(${index})" src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}">`;
+    return `
+    <li class="main-list-item">
+        <button class="main-button" onclick="openFotogram(${index})">
+            <img src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}" />
+        </button>
+    </li>
+`;
 }
 
 function showFotogramImageTemplate(index) {
-    return `<img class="dialog-inner-img" src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}">`;
+    return `<img class="dialog-inner-img" src="./assets/img/${fotogramImagesArray[index]}" alt="${fotogramAltArray[index]}" />
+`;
 }
 
 function currentImageCounterTemplate(index) {
-    return `<img id="previousImageButton" tabindex="0" onkeydown="previousImageOnKeyDown(${index})" onclick="previousImage(${index})" class="mirrored dialog-footer-button" src="./assets/icon/next-icon.png" alt="previous-button" />
-    <p>${index + 1} / 12</p>
-    <img id="nextImageButton" tabindex="0" class="dialog-footer-button" onkeydown="nextImageOnKeyDown(${index})" onclick="nextImage(${index})" src="./assets/icon/next-icon.png" alt="next-button" />`;
+    return `
+<img
+    id="previousImageButton"
+    tabindex="0"
+    onkeydown="previousImageOnKeyDown(${index})"
+    onclick="previousImage(${index})"
+    class="mirrored dialog-footer-button"
+    src="./assets/icon/next-icon.png"
+    alt="previous-button"
+/>
+<p>${index + 1} / 12</p>
+<img
+    id="nextImageButton"
+    tabindex="0"
+    class="dialog-footer-button"
+    onkeydown="nextImageOnKeyDown(${index})"
+    onclick="nextImage(${index})"
+    src="./assets/icon/next-icon.png"
+    alt="next-button"
+/>
+`;
 }

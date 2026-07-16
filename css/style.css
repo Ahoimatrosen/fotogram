@@ -49,6 +49,21 @@ h1 {
     margin-top: 56px;
 }
 
+.main-button {
+    border-radius: 16px;
+    border: none;
+    padding: 0px;
+    background-color: #06171e;
+}
+
+.main-button img {
+    display: block;
+}
+
+.main-list-item {
+    list-style-type: none;
+}
+
 .main-foto-container {
     display: flex;
     justify-content: center;
