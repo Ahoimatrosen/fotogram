@@ -1,4 +1,4 @@
-/* global styling */
+/* #region global styling */
 :root {
     --primary-color: #06171e;
     --secondary-color: #09212a;
@@ -15,6 +15,7 @@
 }
 
 body {
+    height: 100vh;
     background-color: var(--primary-color);
     color: var(--text-color);
 }
@@ -22,9 +23,9 @@ body {
 body:has(.dialog-fotogram[open]) {
     overflow: hidden;
 }
+/* #endregion */
 
-/* Styling for the header */
-
+/* #region Styling for the header */
 .header-main {
     background-color: var(--secondary-color);
     display: flex;
@@ -39,9 +40,8 @@ body:has(.dialog-fotogram[open]) {
     height: 32px;
     object-fit: cover;
 }
-
-/* Styling for the main-part */
-
+/* #endregion */
+/* #region Styling for the main-part */
 h1 {
     text-align: center;
     font-size: 56px;
@@ -58,6 +58,7 @@ h1 {
 
 .main-button img {
     display: block;
+    aspect-ratio: 1/1;
 }
 
 .main-list-item {
@@ -86,8 +87,8 @@ h1 {
     border: solid 2px var(--border-color);
     border-radius: 16px;
     opacity: 0.8;
-    max-width: 150px;
-    max-height: 150px;
+    width: 100%;
+    max-width: 110px;
     object-fit: cover;
 }
 .main-foto-container-images img:hover {
@@ -104,12 +105,12 @@ h1 {
     align-items: center;
 }
 
-/* Styling fot the dialog */
+/* #endregion */
 
+/* #region Styling fot the dialog */
 .dialog-inner-img {
-    max-width: 560px;
-    min-width: 285px;
-    height: 370px;
+    width: 100%;
+    max-width: 500px;
     object-fit: cover;
 }
 
@@ -168,11 +169,11 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    gap: 48px;
+    gap: 32px;
     border-radius: 40px;
     width: 100%;
     height: 100%;
-    padding: 20px 64px;
+    padding: 20px 32px;
 }
 
 .dialog-fotogram-title {
@@ -204,9 +205,9 @@ h1 {
 .mirrored {
     transform: scaleX(-1);
 }
+/* #endregion */
 
-/* Styling for the footer */
-
+/* #region Styling for the footer */
 .footer-main {
     display: flex;
     justify-content: center;
@@ -227,9 +228,9 @@ h1 {
     align-items: center;
     gap: 16px;
 }
+/* #endregion */
 
-/* Media Queries */
-
+/* #region Media Queries */
 @media screen and (min-width: 1440px) {
     main {
         padding: 0px max(120px, calc((50% - 720px)));
@@ -257,7 +258,7 @@ h1 {
 
     .dialog-fotogram-content {
         max-width: 400px;
-        padding: 32px 16px;
+        padding: 24px;
         gap: 24px;
     }
 
@@ -271,10 +272,6 @@ h1 {
 
     .dialog-title-mobile {
         align-self: start;
-    }
-
-    .dialog-inner-img {
-        width: 100%;
     }
 }
 
@@ -298,8 +295,12 @@ h1 {
         white-space: nowrap;
     }
     .dialog-fotogram-content {
-        padding: 32px 16px;
         gap: 24px;
+    }
+    .dialog-inner-img {
+        width: 100%;
+        aspect-ratio: 1/1.125;
+        max-width: 250px;
     }
 }
 
@@ -313,3 +314,22 @@ h1 {
         max-height: 250px;
     }
 }
+
+@media screen and (max-height: 600px) {
+    body {
+        margin: 0;
+        box-sizing: border-box;
+        height: 100dvh;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .main-foto-container-images img {
+        max-width: 60px;
+        max-height: 60px;
+    }
+}
+
+/* #endregion */

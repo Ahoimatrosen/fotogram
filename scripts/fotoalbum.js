@@ -7,7 +7,7 @@ const fotogramImagesArray = [
     "flower.jpg",
     "mushroom.jpg",
     "owl.jpg",
-    "rocks_and_desert.jpg",
+    "river_and_rocks.jpg",
     "elephant.jpg",
     "leopards.jpg",
     "bird.jpg",
@@ -21,25 +21,12 @@ const fotogramAltArray = [
     "A purple flower",
     "A fly agaric",
     "An owl on a tree",
-    "Rocks in a desert",
+    "A River floating between mountains",
     "An elephant in a forest",
     "Two baby leopards",
     "A bird on a branch",
 ];
-const fotogramTitleArray = [
-    "Cat",
-    "Corgi",
-    "Beach",
-    "Dog",
-    "Forest",
-    "Flower",
-    "Mushroom",
-    "Owl",
-    "Rocks_and_desert",
-    "Elephant",
-    "Leopards",
-    "Bird",
-];
+const fotogramTitleArray = ["Cat", "Corgi", "Beach", "Dog", "Forest", "Flower", "Mushroom", "Owl", "River_and_Rocks", "Elephant", "Leopards", "Bird"];
 const fotogramMainRef = document.getElementById("fotoContainer");
 const fotogramDialogRef = document.getElementById("fotogramDialog");
 const fotogramDialogImgRef = document.getElementById("fotogramDialogImg");
