@@ -176,6 +176,12 @@ h1 {
     padding: 20px 32px;
 }
 
+.dialog-fotogram-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dialog-fotogram-title {
     font-size: 24px;
 }
@@ -315,13 +321,7 @@ h1 {
     }
 }
 
-@media screen and (max-height: 600px) {
-    body {
-        margin: 0;
-        box-sizing: border-box;
-        height: 100dvh;
-    }
-
+@media screen and (max-height: 620px) {
     h1 {
         font-size: 32px;
     }
@@ -329,6 +329,62 @@ h1 {
     .main-foto-container-images img {
         max-width: 60px;
         max-height: 60px;
+    }
+    .dialog-inner-img {
+        max-width: 400px;
+    }
+}
+@media screen and (max-height: 520px) {
+    .dialog-inner-img {
+        max-width: 250px;
+        aspect-ratio: 1.5/1;
+    }
+    .dialog-fotogram-content {
+        gap: 16px;
+        padding: 16px;
+    }
+}
+
+@media screen and (max-height: 520px) and (max-width: 768px) {
+    .dialog-fotogram:modal header {
+        flex-direction: row;
+    }
+}
+@media screen and (max-height: 400px) {
+    .dialog-inner-img {
+        width: 100%;
+        max-width: 200px;
+        aspect-ratio: 2/1;
+    }
+    .dialog-fotogram-content {
+        border-radius: 40px;
+        width: 100%;
+        height: 100%;
+        padding: 16px 32px;
+    }
+    .dialog-footer-button {
+        border-radius: 50%;
+        border: none;
+        padding: 0px;
+        background-image: url(../assets/icon/next-icon.png);
+        background-size: cover;
+        background-position: center;
+        background-color: var(--primary-color);
+        width: 30px;
+        height: 30px;
+    }
+
+    .dialog-footer-button:hover {
+        background-image: url(../assets/icon/next-icon-hover.png);
+        background-position: center;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+    .dialog-footer-button img {
+        display: block;
+        width: 30px;
+        height: 30px;
     }
 }
 
